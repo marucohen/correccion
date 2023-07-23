@@ -1,0 +1,40 @@
+{% extends 'AppCorreccion/base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+    CURSOS
+{% endblock titulo %}
+
+{% block header %}
+        <header class="bg-dark py-5">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">CURSOS </h1>
+                            <p class="lead text-white-50 mb-4">La lista de cursos buscados</p>
+                            <a href="{% url 'mostrar_cursos' %}" type="button" class="btn btn-light">Volver</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </header>
+        {% endblock header %}
+
+{% block main %}
+
+        {% for curso in cursos %}
+        
+        
+        
+        <div class="card text-white bg-secondary mb-3" style="width: 40rem; margin-left: 20rem;">
+            <div class="card-header">Curso: {{ curso.nombre }}</div>
+            
+            <a href="{% url 'eliminar_curso' curso.id %}" type="button" class="btn btn-light">Eliminar</a>
+            <a href="{% url 'curso_detalle' curso.id %}" type="button" class="btn btn-light">Detalle</a>
+          </div>
+
+        {% endfor %}
+
+{% endblock main %}

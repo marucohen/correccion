@@ -1,0 +1,42 @@
+{% extends "AppCorreccion/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+   <!-- Heading -->
+   <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'AppCorreccion/img/principal.jpg' %}" alt="">
+        <!--<div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-upper">INICIO DE SESIÓN</span>
+          </h2> 
+          
+        </div> -->
+        <div class="intro-text text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-upper">
+              <form action="" method="POST" style="text-align: center;">
+                {% csrf_token %}
+                <table style="color:white; margin: 20px auto; font-family: 'Raleway'">{{form.as_table}}</table>
+                <button type="submit" class="btn btn-secondary btn-lg style=width: 150px;">Registrate</button>
+            </span>
+          </h2> 
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+    
+    
+</form>
+
+{% endblock %}
