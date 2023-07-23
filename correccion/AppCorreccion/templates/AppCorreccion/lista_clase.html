@@ -2,11 +2,7 @@
 
 {% load static %}
 
-{% block titulo %}
-    CLASES
-{% endblock titulo %}
-
-{% block header %}
+{% block content %}
         <header class="bg-dark py-5">
             <div class="container px-5">
                 <div class="row gx-5 justify-content-center">
@@ -14,15 +10,13 @@
                         <div class="text-center my-5">
                             <h1 class="display-5 fw-bolder text-white mb-2">CLASES </h1>
                             <p class="lead text-white-50 mb-4">La lista de clases buscadas</p>
-                            <a href="{% url 'mostrar_clases' %}" type="button" class="btn btn-light">Volver</a>
+                            <a href="{% url 'mostrar_clases' %}" type="button" class="btn btn-light" style="color:black; margin: 20px auto; font-family: 'Raleway'; font-size: 20px; font-weight: bold" >Volver</a>
                         </div>
                     </div>
                 </div> 
             </div>
         </header>
-        {% endblock header %}
 
-{% block main %}
 
         {% for clase in clases %}
         
@@ -37,4 +31,4 @@
 
         {% endfor %}
 
-{% endblock main %}
+{% endblock %}
