@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class Curso(models.Model):
+class Clase(models.Model):
     nombre = models.CharField(max_length=20)    
 
 class Account(models.Model):

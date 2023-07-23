@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Curso
-from .forms import BuscaCursoForm
+from .models import Clase
+from .forms import BuscaClaseForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from AppCorreccion import forms
@@ -11,41 +11,45 @@ from django.views.generic.detail import DetailView
 def inicio(request): 
     return render(request, "AppCorreccion/inicio.html")
 
-def curso(request):
+def nosotrxs(request):    
+    return render(request, "AppCorreccion/nosotrxs.html")
+
+
+def clase(request):
       
       if request.method == 'POST':
-        curso =  Curso(nombre=request.POST['nombre'])
-        curso.save()
-        return render(request, "AppCorreccion/curso_bien.html")
-      return render(request,"AppCorreccion/curso.html")
+        clase =  Clase(nombre=request.POST['nombre'])
+        clase.save()
+        return render(request, "AppCorreccion/clase_bien.html")
+      return render(request,"AppCorreccion/clase.html")
 
-def buscar_curso(request):
+def buscar_clase(request):
     if request.method == "POST":
-        busca_curso = BuscaCursoForm(request.POST)
+        busca_clase = BuscaClaseForm(request.POST)
 
-        if busca_curso.is_valid():
-            info = busca_curso.cleaned_data
-            cursos = Curso.objects.filter(nombre=info["curso"])
-            return render(request, "AppCorreccion/lista_curso.html", {"cursos": cursos})
+        if busca_clase.is_valid():
+            info = busca_clase.cleaned_data
+            clases = Clase.objects.filter(nombre=info["clase"])
+            return render(request, "AppCorreccion/lista_clase.html", {"clases": clases})
     else:
-        busca_curso = BuscaCursoForm()
-        return render(request, "AppCorreccion/buscar_curso.html", {"miFormulario": busca_curso})
+        busca_clase = BuscaClaseForm()
+        return render(request, "AppCorreccion/buscar_clase.html", {"miFormulario": busca_clase})
 
-def mostrar_cursos(request):
-    cursos = Curso.objects.all()
-    contexto= {"cursos":cursos} 
-    return render(request, "AppCorreccion/mostrar_cursos.html",contexto)
+def mostrar_clases(request):
+    clases = Clase.objects.all()
+    contexto= {"clases":clase} 
+    return render(request, "AppCorreccion/mostrar_clases.html",contexto)
 
-def eliminar_curso(request, id):
-    curso = Curso.objects.get(id=id)
-    curso.delete()
-    curso = Curso.objects.all()
-    contexto = {"cursos": curso}
-    return render (request, "AppCorreccion/mostrar_cursos.html", contexto)
+def eliminar_clase(request, id):
+    clase = Clase.objects.get(id=id)
+    clase.delete()
+    clase = Clase.objects.all()
+    contexto = {"clases": clase}
+    return render (request, "AppCorreccion/mostrar_clases.html", contexto)
 
-class CursoDetalle(DetailView):
-    model = Curso
-    template_name = "AppEntrega/curso_detalle.html"
+class ClaseDetalle(DetailView):
+    model = Clase
+    template_name = "AppEntrega/clase_detalle.html"
 
 
 

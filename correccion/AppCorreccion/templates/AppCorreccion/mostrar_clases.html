@@ -1,0 +1,42 @@
+{% extends 'AppCorreccion/base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+    CLASES
+{% endblock titulo %}
+
+{% block header %}
+        <header class="bg-dark py-5">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">CLASES</h1>
+                            <p class="lead text-white-50 mb-4">Lista de clases</p>
+                            <a href="{% url 'clase' %}" type="button" class="btn btn-light">Agregar clase</a>
+                            <a href="{% url 'buscar_clase' %}" type="button" class="btn btn-light">Buscar clase</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </header>
+        {% endblock header %}
+
+{% block main %}
+
+{% for clase in clases %}
+
+
+<div class="card text-white bg-secondary mb-3 mark " style="width: 40rem; margin-left: 35rem;">
+    <div class="card-header">clase: {{ clase.nombre }}</div>
+    
+    <a href="{% url 'eliminar_clase' clase.id %}" type="button" class="btn btn-light">Eliminar</a>
+    <a href="{% url 'clase_detalle' clase.id %}" type="button" class="btn btn-light">Detalle</a>
+    
+</div>
+
+{% endfor %}
+
+
+{% endblock main %}
