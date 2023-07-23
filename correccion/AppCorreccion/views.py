@@ -47,9 +47,7 @@ def eliminar_clase(request, id):
     contexto = {"clases": clase}
     return render (request, "AppCorreccion/mostrar_clases.html", contexto)
 
-class ClaseDetalle(DetailView):
-    model = Clase
-    template_name = "AppEntrega/clase_detalle.html"
+
 
 
 

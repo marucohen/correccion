@@ -12,9 +12,9 @@
                     <div class="col-lg-6">
                         <div class="text-center my-5">
                             <h1 class="display-5 fw-bolder text-white mb-2">CLASES</h1>
-                            <p class="lead text-white-50 mb-4">Lista de clases</p>
-                            <a href="{% url 'clase' %}" type="button" class="btn btn-light">Agregar Clase</a>
-                            <a href="{% url 'buscar_clase' %}" type="button" class="btn btn-light">Buscar Clase</a>
+                            <p class="lead text-white-50 mb-4" style= "font-family:'Raleway', sans-serif; text-transform: uppercase; color: white; font-size: 22px; font-weight: bold; text-align: center">Acá podés encontrar las clases que necesitas, y editar las que elijas</p>
+                            <a href="{% url 'clase' %}" type="button" class="btn btn-light" style="color:black; margin: 14px auto; font-family: 'Raleway'; font-size: 16px; font-weight: bold">Agregar Clase</a>
+                            <a href="{% url 'buscar_clase' %}" type="button" class="btn btn-light" style="color:black; margin: 14x auto; font-family: 'Raleway'; font-size: 16px; font-weight: bold">Buscar Clase</a>
                         </div>
                     </div>
                 </div> 
@@ -24,12 +24,10 @@
             {% for clase in clases %}
 
 
-            <div class="card text-white bg-secondary mb-3 mark " style="width: 40rem; margin-left: 35rem;">
-                <div class="card-header">Clase: {{ clase.nombre }}</div>
-                    <a href="{% url 'eliminar_clase' clase.id %}" type="button" class="btn btn-light">Eliminar</a>
-                <!--
-                    <a href="{% url 'clase_detalle' clase.id %}" type="button" class="btn btn-light">Detalle</a>
-                -->
+            <div class="card text-white bg-secondary mb-3 mark " style="width: 40rem; margin: 0 auto;">
+                <div class="card-header" style="color:white; margin: 14x auto; font-family: 'Raleway'; font-size: 16px; font-weight: bold">Clase: {{ clase.nombre }}</div>
+                    <a href="{% url 'eliminar_clase' clase.id %}" type="button" class="btn btn-light" style="color:black; margin: 20px auto; font-family: 'Raleway'; font-size: 16 px; font-weight: bold">Eliminar</a>
+                
                 
             </div>
             

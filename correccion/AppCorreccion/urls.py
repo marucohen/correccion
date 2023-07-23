@@ -11,7 +11,7 @@ urlpatterns = [
         path('mostrar_clases/', views.mostrar_clases, name='mostrar_clases'),
         path('buscar_clase/', views.buscar_clase, name="buscar_clase"),
         path('eliminar_clase/<id>/', views.eliminar_clase, name="eliminar_clase"),
-        path('clase_detalle/<pk>/', views.ClaseDetalle.as_view(), name="clase_detalle"),
+        
 
         path('login/', views.login_request, name='login'),
         path('register/', views.register, name='register'),
@@ -19,5 +19,3 @@ urlpatterns = [
         
 ]
 
-#
-#
