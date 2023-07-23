@@ -37,7 +37,7 @@ def buscar_clase(request):
 
 def mostrar_clases(request):
     clases = Clase.objects.all()
-    contexto= {"clases":clase} 
+    contexto= {"clases":clases} 
     return render(request, "AppCorreccion/mostrar_clases.html",contexto)
 
 def eliminar_clase(request, id):

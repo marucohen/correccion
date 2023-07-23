@@ -2,42 +2,36 @@
 
 {% load static %}
 
+
 {% block content %}
-<!--<p style= "font-family:'Raleway', sans-serif; text-transform: uppercase; color: white; font-size: 28px; font-weight: bold; text-align: center; margin: 20;">LISTA DE CLASES DISPONIBLES </p>
-<a href="{% url 'clase' %}" type="button" class="btn btn-secondary btn-lg style=color:black; margin: 20px auto; font-family: 'Raleway'">Agregar clase</a>
-<a href="{% url 'buscar_clase' %}" type="button" class="btn btn-secondary btn-lg style=color:black; margin: 20px auto; font-family: 'Raleway'">Buscar clase</a>
--->
 
 
         
             <div class="container px-5">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
-                        <div class="text-center my-5 ">
-                            <h1 class ="display-5 fw-bolder text-white mb-2 ">CLASES</h1>
-                            <p class="lead text-white-50 mb-4" style= "color:white; margin: 20px auto; font-family: 'Raleway'; text-transform: uppercase; font-size: 28px;">Lista de clases disponibles</p>
-                            <a href="{% url 'clase' %}" type="button" class="btn btn-light" style="color:black; margin: 20px auto; font-family: 'Raleway'; font-size: 20px; font-weight: bold">Agregar clase</a>
-                            <a href="{% url 'buscar_clase' %}" type="button" class="btn btn-light" style="color:black; margin: 20px auto; font-family: 'Raleway'; font-size: 20px; font-weight: bold" >Buscar clase</a>
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">CLASES</h1>
+                            <p class="lead text-white-50 mb-4">Lista de clases</p>
+                            <a href="{% url 'clase' %}" type="button" class="btn btn-light">Agregar Clase</a>
+                            <a href="{% url 'buscar_clase' %}" type="button" class="btn btn-light">Buscar Clase</a>
                         </div>
                     </div>
                 </div> 
             </div>
+                
 
-{% for clase in clases %}
-<div><p>
-    <h2> {{clase.nombre}}</h2>
-    <p>{{clase.contenido}}</p>
+            {% for clase in clases %}
 
 
-</p></div>
+            <div class="card text-white bg-secondary mb-3 mark " style="width: 40rem; margin-left: 35rem;">
+                <div class="card-header">Clase: {{ clase.nombre }}</div>
+                    <a href="{% url 'eliminar_clase' clase.id %}" type="button" class="btn btn-light">Eliminar</a>
+                <a href="{% url 'clase_detalle' clase.id %}" type="button" class="btn btn-light">Detalle</a>
+                
+            </div>
+            
+            {% endfor %}
 
-<!--<div class="card text-white bg-secondary mb-3 mark " style="width: 40rem; margin-left: 35rem;">
-    <div class="card-header">clase: {{ clase.nombre }}</div>
-    
-    <a href="{% url 'eliminar_clase' clase.id %}" type="button" class="btn btn-light">Eliminar</a>
-    <a href="{% url 'clase_detalle' clase.id %}" type="button" class="btn btn-light">Detalle</a>
-    
-</div> -->
 
-{% endfor %}
 {% endblock %}
