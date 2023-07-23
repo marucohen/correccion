@@ -1,0 +1,31 @@
+{% extends 'AppCorreccion/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">AGREGAR CLASE</h1>
+                            <p class="lead text-white-50 mb-4"></p>
+                            <a href="{% url 'mostrar_clases' %}" type="button" class="btn btn-light" style="color:black; margin: 20px auto; font-family: 'Raleway'; font-size: 20px; font-weight: bold">Volver</a>
+                            
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div style="width: 40rem; margin: 0 auto; text-align: center;">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="col" style="width: 40rem; margin: 0 auto; text-align: center;">
+                        <input type="text" class="form-control" placeholder="Materia" aria-label="Materia" name="nombre">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-secondary btn-lg" style="color: black; margin: 0 auto; display: block; font-family: 'Raleway'; font-size: 16px; font-weight: bold;">Enviar</button>
+                </form>
+            </div>
+
+{% endblock %}

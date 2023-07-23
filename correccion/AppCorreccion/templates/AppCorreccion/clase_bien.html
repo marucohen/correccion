@@ -1,0 +1,26 @@
+{% extends 'AppCorreccion/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+        <header class="bg-dark py-5">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">SE AGREGO LA CLASE CON EXITO </h1>
+                           <a href="{% url 'clase' %}" type="button" class="btn btn-light">Agregar clase nueva</a>
+                           <a href="{% url 'mostrar_clases' %}" type="button" class="btn btn-light">Mostrar clases</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </header>
+
+
+
+
+
+{% endblock %}

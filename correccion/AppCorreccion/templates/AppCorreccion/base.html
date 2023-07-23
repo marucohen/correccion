@@ -38,8 +38,31 @@
           <li class="nav-item active px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'inicio' %}">Inicio</a>
           </li>
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Nosotrxs' %}">Sobre Tus Clases Particulares</a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'mostrar_clases' %}">Clases</a>
+          </li>
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'register' %}">Registrarse</a>
+          </li>
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'login' %}">Iniciar sesión</a>
+          </li>
           
-         
+          {% endif %}
+          {% if request.user.is_authenticated %}
+          <li class="lead text-white-50" style="font-family:'Raleway', sans-serif; text-transform: uppercase; color: white; text-align: left;"> Bienvenido, {{user.username}}</li>
+          {% endif %}
+
+        
         </ul>
       </div>
     </div>

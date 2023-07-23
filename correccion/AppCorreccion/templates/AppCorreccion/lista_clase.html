@@ -1,0 +1,29 @@
+{% extends 'AppCorreccion/base.html' %}
+
+{% load static %}
+
+{% block content %}
+        
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">CLASES </h1>
+                            <p class="lead text-white-50 mb-4" style="color:white; margin: 18px auto; font-family: 'Raleway'; font-size: 16px">Buscá la clase que deseas. En caso de interesarte, podés seleccionar "agregar clase" y volver a la sección "Agregar clase". Escribí la clase ahi y listo! Si querés borrarla de tu lista, presiona "Eliminar".</p>
+                            <a href="{% url 'mostrar_clases' %}" type="button" class="btn btn-light" style="color:black; margin: 20px auto; font-family: 'Raleway'; font-size: 20px; font-weight: bold" >Volver</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            {% for clase in clases %}
+            <div class="card text-white bg-secondary mb-3" style="width: 40rem; margin-left: 20rem;">
+            <div class="card-header">Clase: {{ clase.nombre }}</div>
+            
+            <a href="{% url 'eliminar_clase' clase.id %}" type="button" class="btn btn-light" style="color:black; margin: 14px auto; font-family: 'Raleway'; font-size: 16px; font-weight: bold">Eliminar</a>
+            <a href="{% url 'clase' %}" type="button" class="btn btn-light" style="color:black; margin: 14px auto; font-family: 'Raleway'; font-size: 16px; font-weight: bold">Agregar Clase</a>
+            
+            </div>
+
+            {% endfor %}
+
+{% endblock %}
